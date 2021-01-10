@@ -1,0 +1,39 @@
+https://react-bootstrap.netlify.app/components/alerts
+
+https://reactjs.org/docs/introducing-jsx.html
+
+
+Yeast radio buttons
+
+	const [radioValue, setRadioValue] = useState("active");
+	
+	const radios = [
+		{ name: "Active Dry", value: "active" },
+		{ name: "Instant", value: "instant" },
+		{ name: "Fresh", value: "fresh" },
+	];
+
+			<tr>
+				<td>
+					Yeast
+					<ButtonGroup className="ml-3" toggle>
+						{radios.map((radio, idx) => (
+							<ToggleButton
+								key={idx}
+								type="radio"
+								variant="secondary"
+								name="radio"
+								value={radio.value}
+								checked={radioValue === radio.value}
+								onChange={e =>
+									setRadioValue(e.currentTarget.value)
+								}
+							>
+								{radio.name}
+							</ToggleButton>
+						))}
+					</ButtonGroup>
+				</td>
+				<td>TBD</td>
+				<td>TBD</td>
+			</tr>

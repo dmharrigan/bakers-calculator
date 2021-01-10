@@ -39,7 +39,11 @@ export const updateIngredientWeight = (ingredient, newWeight, setState) => {
 		ret[ingredient].weight = newWeight;
 
 		if (currentState.calcType === "baker") {
-			ret = fixBakersPercent(ret);
+			if (currentState.inputType === "percentage") {
+				ret = fixBakersWeight(ret);
+			} else {
+				ret = fixBakersPercent(ret);
+			}
 		} else {
 			ret = fixScalingPercent(ret);
 		}
